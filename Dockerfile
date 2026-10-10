@@ -16,9 +16,11 @@
  
 
 FROM quay.io/suhailtechinfo/suhail-v2
-RUN git clone https://github.com/FAXITECH/Faxi-Bot /root/smdd
-RUN rm -rf /root/smdd/.git
+# Copy the repository contents into the image (instead of cloning from GitHub)
+# so Railway always builds the exact code that was pushed.
 WORKDIR /root/smdd
+COPY . /root/smdd
+RUN rm -rf /root/smdd/.git
 RUN npm install || yarn install
 EXPOSE 8000
 CMD ["npm","start" ] 
