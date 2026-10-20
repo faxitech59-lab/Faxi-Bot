@@ -1,3 +1,4 @@
+require(__dirname + '/lib/baileys-fix')
 const bot = require(__dirname + '/lib/smd')
 const { VERSION } = require(__dirname + '/config')
 
